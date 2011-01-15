@@ -25,7 +25,7 @@ module Refinery
       protected
 
         def initialize
-          ::Refinery::Blog.tabs << self # add me to the collection of registered page tabs
+          ::Refinery::Blog::Posts.tabs << self # add me to the collection of registered page tabs
         end
       end
 
