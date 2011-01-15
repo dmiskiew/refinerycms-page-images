@@ -1,7 +1,38 @@
 require 'refinery'
 
 module Refinery
-  module PageImages
+  module Blog
+    module Posts
+
+      attr_accessor :tabs
+
+      def self.tabs
+        @tabs ||= []
+      end
+
+      class Tab
+        attr_accessor :name, :partial
+
+        def self.register(&block)
+          tab = self.new
+
+          yield tab
+
+          raise "A tab MUST have a name!: #{tab.inspect}" if tab.name.blank?
+          raise "A tab MUST have a partial!: #{tab.inspect}" if tab.partial.blank?
+        end
+
+      protected
+
+        def initialize
+          ::Refinery::Blog.tabs << self # add me to the collection of registered page tabs
+        end
+      end
+
+    end
+  end
+
+  module BlogPostsImages
     class Engine < Rails::Engine
       initializer "static assets" do |app|
         app.middleware.insert_after ::ActionDispatch::Static, ::ActionDispatch::Static, "#{root}/public"
@@ -26,7 +57,7 @@ module Refinery
       end
 
       config.after_initialize do
-        Refinery::Pages::Tab.register do |tab|
+        Refinery::Blog::Posts::Tab.register do |tab|
           tab.name = "images"
           tab.partial = "/admin/blog_posts/tabs/images"
         end
