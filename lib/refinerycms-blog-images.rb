@@ -8,7 +8,7 @@ module Refinery
       end
 
       config.to_prepare do
-        Page.module_eval do
+        BlogPost.module_eval do
           has_many :image_blog_posts
           has_many :images, :through => :image_blog_posts, :order => 'position ASC'
           # accepts_nested_attributes_for MUST come before def images_attributes=
