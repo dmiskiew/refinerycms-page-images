@@ -7,8 +7,8 @@ class CreateBlogImages < ActiveRecord::Migration
       t.integer :position
     end
 
-    add_index :image_pages, :image_id
-    add_index :image_pages, :blog_post_id
+    add_index :image_blog_posts, :image_id
+    add_index :image_blog_posts, :blog_post_id
   end
 
   def self.down
