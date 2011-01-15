@@ -26,10 +26,10 @@ module Refinery
       end
 
       config.after_initialize do
-        Refinery::BlogPost::Tab.register do |tab|
-          tab.name = "images"
-          tab.partial = "/admin/blog_posts/tabs/images"
-        end
+#        Refinery::BlogPost::Tab.register do |tab|
+#          tab.name = "images"
+#          tab.partial = "/admin/blog_posts/tabs/images"
+#        end
       end
     end
   end
