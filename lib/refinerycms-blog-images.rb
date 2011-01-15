@@ -9,8 +9,8 @@ module Refinery
 
       config.to_prepare do
         Page.module_eval do
-          has_many :image_pages
-          has_many :images, :through => :image_pages, :order => 'position ASC'
+          has_many :image_blog_posts
+          has_many :images, :through => :image_blog_posts, :order => 'position ASC'
           # accepts_nested_attributes_for MUST come before def images_attributes=
           # this is because images_attributes= overrides accepts_nested_attributes_for.
           accepts_nested_attributes_for :images, :allow_destroy => false
@@ -26,9 +26,9 @@ module Refinery
       end
 
       config.after_initialize do
-        Refinery::Pages::Tab.register do |tab|
+        Refinery::BlogPost::Tab.register do |tab|
           tab.name = "images"
-          tab.partial = "/admin/pages/tabs/images"
+          tab.partial = "/admin/blog_posts/tabs/images"
         end
       end
     end

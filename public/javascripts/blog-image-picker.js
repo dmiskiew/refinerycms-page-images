@@ -1,14 +1,14 @@
 $(document).ready(function(){
   $('#custom_images_tab a').click(function(){
-    if (!(picker = $('#page_image_picker')).data('size-applied')){
-      wym_box = $('.page_part:first .wym_box');
-      iframe = $('.page_part:first iframe');
+    if (!(picker = $('#blog_image_picker')).data('size-applied')){
+      wym_box = $('.blog_part:first .wym_box');
+      iframe = $('.blog_part:first iframe');
       picker.css({
         height: wym_box.height()
         , width: wym_box.width()
       }).data('size-applied', true).corner('tr 5px').corner('bottom 5px').find('.wym_box').css({
         backgroundColor: 'white'
-        , height: iframe.height() + $('.page_part:first .wym_area_top').height() - parseInt($('.wym_area_top .label_inline_with_link a').css('lineHeight'))
+        , height: iframe.height() + $('.blog_part:first .wym_area_top').height() - parseInt($('.wym_area_top .label_inline_with_link a').css('lineHeight'))
         , width: iframe.width() - 20
         , 'border-color': iframe.css('border-top-color')
         , 'border-style': iframe.css('border-top-style')
@@ -22,7 +22,7 @@ $(document).ready(function(){
 });
 
 reset_functionality = function() {
-  $("#page_images").sortable({
+  $("#blog_images").sortable({
     'tolerance': 'pointer'
     , 'placeholder': 'placeholder'
     , 'cursor': 'drag'
@@ -30,7 +30,7 @@ reset_functionality = function() {
     , stop: reindex_images
   });
 
-  $('#content #page_images li:not(.empty)').each(function(index, li) {
+  $('#content #blog_images li:not(.empty)').each(function(index, li) {
     $(this).hover(function(e){
       if ((image_actions = $(this).find('.image_actions')).length == 0) {
         image_actions = $("<div class='image_actions'></div>");
@@ -66,12 +66,12 @@ image_added = function(image) {
 
   current_list_item.attr('id', 'image_' + image_id).removeClass('empty');
 
-  new_list_item.appendTo($('#page_images'));
+  new_list_item.appendTo($('#blog_images'));
   reset_functionality();
 }
 
 reindex_images = function() {
-  $('#page_images li input:hidden').each(function(i, input){
+  $('#blog_images li input:hidden').each(function(i, input){
 
     // make the image's name consistent with its position.
     parts = $(input).attr('name').split(']');

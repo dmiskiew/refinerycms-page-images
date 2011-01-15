@@ -1,9 +1,9 @@
 Gem::Specification.new do |s|
-  s.name              = %q{refinerycms-page-images}
+  s.name              = %q{refinerycms-blog-images}
   s.version           = %q{0.9.9}
-  s.description       = %q{Page Images Engine for Refinery CMS}
+  s.description       = %q{Blog Images Engine for Refinery CMS}
   s.date              = %q{2010-12-31}
-  s.summary           = %q{Page Images Engine for Refinery CMS}
+  s.summary           = %q{Blog Images Engine for Refinery CMS}
   s.email             = %q{dave@resolvedigital.com}
   s.homepage          = %q{http://github.com/resolve/refinerycms-page-images}
   s.authors           = ['Resolve Digital', 'David Jones', 'Philip Arndt']
@@ -18,22 +18,22 @@ Gem::Specification.new do |s|
     'public',
     'readme.md',
     'app/models',
-    'app/models/image_page.rb',
+    'app/models/image_blog_post.rb',
     'app/views',
     'app/views/admin',
-    'app/views/admin/pages',
-    'app/views/admin/pages/tabs',
-    'app/views/admin/pages/tabs/_images.html.erb',
+    'app/views/admin/blogs',
+    'app/views/admin/blogs/tabs',
+    'app/views/admin/blogs/tabs/_images.html.erb',
     'db/migrate',
-    'db/migrate/create_page_images.rb',
+    'db/migrate/create_blog_images.rb',
     'lib/gemspec.rb',
     'lib/generators',
-    'lib/generators/refinerycms_page_images_generator.rb',
-    'lib/refinerycms-page-images.rb',
+    'lib/generators/refinerycms_blog_images_generator.rb',
+    'lib/refinerycms-blog-images.rb',
     'public/javascripts',
-    'public/javascripts/page-image-picker.js',
+    'public/javascripts/blog-image-picker.js',
     'public/stylesheets',
-    'public/stylesheets/page-image-picker.css'
+    'public/stylesheets/blog-image-picker.css'
   ]
   
 end

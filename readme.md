@@ -1,8 +1,8 @@
-# Page Images Engine for Refinery CMS
+# Blog Images Engine for Refinery CMS
 
 ## About
 
-Page Images allows you to relate one or more images to any page in Refinery which makes it really easy for you to create simple image galleries with lightbox style popups on the front end page views.
+Blog Images allows you to relate one or more images to any blog in Refinery which makes it really easy for you to create simple image galleries with lightbox style popups on the front end blog views.
 
 ## Requirements
 
@@ -10,26 +10,26 @@ Page Images allows you to relate one or more images to any page in Refinery whic
 
 ## Features
 
-* Ability to select one or more images from the image picker and relate them to a page
+* Ability to select one or more images from the image picker and relate them to a blog
 * Reordering support, simply drag into order
 
 ## Install
 
 Add this line to your applications `Gemfile`
 
-    gem 'refinerycms-page-images', '~> 0.9.9'
+    gem 'refinerycms-blog-images', '~> 0.9.9'
 
 Next run
 
     bundle install
-    rails g refinerycms_page_images
+    rails g refinerycms_blog_images
     rake db:migrate
 
-Now when you start up your Refinery application, edit a page and there should be a new "Images" tab.
+Now when you start up your Refinery application, edit a blog and there should be a new "Images" tab.
 
 If you get an error like
 
-  uninitialized constant Refinery::Pages::Tab
+  uninitialized constant Refinery::Blogs::Tab
 
 It means your Refinery version isn't new enough. To fix that you need to update the Refinery CMS `Gemfile` line to this
 
@@ -45,19 +45,19 @@ for any changes that have happened since the version of Refinery CMS that you we
 
 ## Usage
 
-`app/views/pages/show.html.erb`
+`app/views/blogs/show.html.erb`
 
     <% content_for :body_content_right do %>
       <ul id='gallery'>
-        <% @page.images.each do |i| %>
+        <% @blog.images.each do |i| %>
           <li>
             <%= link_to image_tag(i.thumbnail("200x200#c").url), i.thumbnail("900x600").url %>
           </li>
         <% end %>
       </ul>
     <% end %>
-    <%= render :partial => "/shared/content_page" %>
+    <%= render :partial => "/shared/content_blog" %>
 
 ## Screenshot
 
-![Refinery CMS Page Images Screenshot](http://refinerycms.com/system/images/0000/1736/refinerycms-page-images.png)
+![Refinery CMS Blog Images Screenshot](http://refinerycms.com/system/images/0000/1736/refinerycms-blog-images.png)
