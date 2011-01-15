@@ -28,7 +28,7 @@ Gem::Specification.new do |s|
     'db/migrate/create_blog_images.rb',
     'lib/gemspec.rb',
     'lib/generators',
-    'lib/generators/refinerycms_blog_images_generator.rb',
+    'lib/generators/refinerycms_blog_post_images_generator.rb',
     'lib/refinerycms-blog-images.rb',
     'public/javascripts',
     'public/javascripts/blog-image-picker.js',
