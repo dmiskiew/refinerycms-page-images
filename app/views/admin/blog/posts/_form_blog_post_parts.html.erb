@@ -1,0 +1,24 @@
+<div id='page-tabs' class='clearfix ui-tabs ui-widget ui-widget-content ui-corner-all'>
+  <ul id='page_parts'>
+    <li class='ui-state-default ui-state-active'>
+      <%= link_to "Body", "##{@blog_post.persisted? ? "page_part_body" : "page_part_new_0"}" %>
+    </li>
+
+    <% Refinery::Blog::Posts.tabs.each_with_index do |tab, tab_index| %>
+      <li class='ui-state-default' id="custom_<%= tab.name %>_tab">
+        <%= link_to tab.name.titleize, "#custom_tab_#{tab_index}" %>
+      </li>
+    <% end %>
+  </ul>
+
+  <div id='page_part_editors'>
+    <div class='page_part' id='<%= @blog_post.persisted? ? "page_part_body" : "page_part_new_0"  %>'>
+      <%= f.text_area :body, :rows => 20, :class => 'wymeditor widest' -%>
+    </div>
+    <% Refinery::Blog::Posts.tabs.each_with_index do |tab, tab_index| %>
+      <div class='page_part' id='<%= "custom_tab_#{tab_index}" %>'>
+        <%= render :partial => tab.partial, :locals => {:f => f} %>
+      </div>
+    <% end %>
+  </div>
+</div>

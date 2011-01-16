@@ -1,0 +1,19 @@
+<script>
+  $(document).ready(function(){
+    $('#toggle_advanced_options').click(function(e){
+      e.preventDefault();
+
+      $('#more_options').animate({opacity: 'toggle', height: 'toggle'}, 250);
+
+      $('html,body').animate({
+        scrollTop: $('#toggle_advanced_options').parent().offset().top
+      }, 250);
+    });
+
+    page_options.init(
+      <%= RefinerySetting.find_or_set(:new_page_parts, false).to_s %>
+      , "<%= new_admin_page_part_path %>"
+      , "<%= admin_page_parts_path %>"
+    );
+  });
+</script>

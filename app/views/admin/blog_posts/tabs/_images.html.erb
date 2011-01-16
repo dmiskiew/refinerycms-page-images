@@ -1,4 +1,4 @@
-<div class='wym_skin_refinery blog_part' id='blog_image_picker'>
+<div class='wym_skin_refinery page_part' id='blog_image_picker'>
   <div class='wym_area_top'>
     <span class='clearfix label_inline_with_link'>
       <%= link_to 'Add Image',
@@ -12,7 +12,7 @@
     </span>
   </div>
   <div class='wym_box field images_field'>
-    <ul id='page_images' class='clearfix'>
+    <ul id='blog_images' class='clearfix'>
       <%= f.fields_for :images do |image_form| %>
         <li id='image_<%= image_form.object.id %>'>
           <%= image_form.hidden_field :id %>
